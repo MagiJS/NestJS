@@ -28,11 +28,15 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@apollo/server": "^4.10.0",
+    "@as-integrations/fastify": "^2.1.1",
     "@fastify/static": "^6.11.0",
+    "@nestjs/apollo": "^12.0.11",
     "@nestjs/cache-manager": "^2.1.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.0.1",
     "@nestjs/core": "^10.0.0",
+    "@nestjs/graphql": "^12.0.11",
     "@nestjs/jwt": "^10.1.1",
     "@nestjs/passport": "^10.0.2",
     "@nestjs/platform-fastify": "^10.2.5",
@@ -44,6 +48,7 @@
     "class-validator": "^0.14.0",
     "dayjs": "^1.11.9",
     "fastify": "^4.23.0",
+    "graphql": "^16.8.1",
     "lodash": "^4.17.21",
     "nestjs-prisma": "^0.22.0",
     "rxjs": "^7.8.1"
