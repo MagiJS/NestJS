@@ -36,7 +36,29 @@
         "files.watcherExclude": {
           "**/node_modules/**": true
         },
-        "betterTypeScriptErrors.prettify": true
+        "betterTypeScriptErrors.prettify": true,
+        "editor.codeActionsOnSave": {
+          "quickfix.biome": "always",
+          "source.organizeImports.biome": "always"
+        },
+        "[javascript]": {
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[javascriptreact]": {
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[jsonc]": {
+          "editor.defaultFormatter": "biomejs.biome"
+        }
       },
       "extensions": [
         "EditorConfig.EditorConfig",
@@ -45,7 +67,6 @@
         "PKief.material-icon-theme",
         "antfu.file-nesting",
         "biomejs.biome",
-        "bradlc.vscode-tailwindcss",
         "eamodio.gitlens",
         "ms-vscode.vscode-typescript-next"
       ]
