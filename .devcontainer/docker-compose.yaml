@@ -1,0 +1,14 @@
+services:
+  nestjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ../:/home/bun/app:cached
+      - node_modules:/home/bun/app/node_modules
+    tty: true
+    stdin_open: true
+
+volumes:
+  node_modules:
