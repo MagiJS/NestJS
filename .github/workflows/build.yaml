@@ -27,6 +27,7 @@ jobs:
 
       - name: Build
         run: |
+          bun prisma generate
           bun run build
 
   test:
@@ -44,6 +45,7 @@ jobs:
       - name: Install
         run: |
           bun install --frozen-lockfile --ignore-scripts
+          bun prisma generate
 
       - name: Lint and Format
         run: |
