@@ -17,13 +17,13 @@ jobs:
       - name: Bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: 1.1.1
+          bun-version: 1.1.7
           no-cache: false
 
       - name: Install
         run: |
           bun install --frozen-lockfile --production --ignore-scripts
-          bun install @nestjs/cli
+          bun add @nestjs/cli --ignore-scripts
 
       - name: Build
         run: |
