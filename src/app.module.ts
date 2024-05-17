@@ -1,11 +1,12 @@
-import { type MiddlewareConsumer, Module, type NestModule, RequestMethod } from "@nestjs/common"
-import { AppController } from "./app.controller"
-import { AppService } from "./app.service"
 import { HttpModule } from "@nestjs/axios"
 import { CacheModule } from "@nestjs/cache-manager"
+import { type MiddlewareConsumer, Module, type NestModule, RequestMethod } from "@nestjs/common"
 import { ConfigModule } from "@nestjs/config"
 import { ThrottlerModule } from "@nestjs/throttler"
 import { PrometheusModule } from "@willsoto/nestjs-prometheus"
+import { PrismaModule, PrismaService } from "nestjs-prisma"
+import { AppController } from "./app.controller"
+import { AppService } from "./app.service"
 import { LoggerMiddleware } from "./utils/logger.middleware"
 
 @Module({
@@ -34,7 +35,8 @@ import { LoggerMiddleware } from "./utils/logger.middleware"
       headers: {
         "accept-encoding": "gzip, deflate"
       }
-    })
+    }),
+    PrismaModule.forRoot({ isGlobal: true })
   ],
   controllers: [AppController],
   providers: [AppService]

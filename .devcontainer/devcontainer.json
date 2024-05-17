@@ -68,7 +68,8 @@
         "antfu.file-nesting",
         "biomejs.biome",
         "eamodio.gitlens",
-        "ms-vscode.vscode-typescript-next"
+        "ms-vscode.vscode-typescript-next",
+        "Prisma.prisma"
       ]
     }
   }

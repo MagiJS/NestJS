@@ -1,22 +1,21 @@
+import { join } from "node:path"
+import content from "@/../package.json"
+import { LogLevel, ValidationPipe, VersioningType } from "@nestjs/common"
 import { NestFactory } from "@nestjs/core"
-import { AppModule } from "./app.module"
-import fastify from "fastify"
 import { FastifyAdapter, type NestFastifyApplication } from "@nestjs/platform-fastify"
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger"
+import fastify from "fastify"
 import * as SwaggerStats from "swagger-stats"
 import { SwaggerTheme } from "swagger-themes"
 import { SwaggerThemeNameEnum } from "swagger-themes/build/enums/swagger-theme-name"
-import content from "@/../package.json"
-import { LogLevel, ValidationPipe, VersioningType } from "@nestjs/common"
-import { join } from "node:path"
+import { AppModule } from "./app.module"
 
 async function bootstrap() {
   const server = fastify({ bodyLimit: 50 * 1024 * 1024 })
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(server), {
-    logger: ["error", "warn", "log", "debug", "verbose"],
-    logLevel: LogLevel.VERBOSE
+    logger: ["error", "warn", "log", "debug", "verbose"]
   })
 
   app.enableVersioning({ defaultVersion: "1", type: VersioningType.URI })
