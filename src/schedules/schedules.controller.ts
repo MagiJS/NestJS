@@ -1,5 +1,4 @@
-import { ErrorsInterceptor } from "@/utils/errors.interceptor"
-import { RequestInterceptor } from "@/utils/request.interceptor"
+import { ValidateInterceptor } from "@/utils/validate.interceptor"
 import { CacheInterceptor } from "@nestjs/cache-manager"
 import { Body, Controller, Delete, Get, Param, Patch, Post, UseInterceptors } from "@nestjs/common"
 import { CreateScheduleDto } from "./dto/create-schedule.dto"
@@ -12,7 +11,7 @@ export class SchedulesController {
   constructor(private readonly schedulesService: SchedulesService) {}
 
   @Post()
-  @UseInterceptors(RequestInterceptor<CreateScheduleDto>)
+  @UseInterceptors(new ValidateInterceptor<CreateScheduleDto>(CreateScheduleDto))
   create(@Body() createScheduleDto: CreateScheduleDto) {
     return this.schedulesService.create(createScheduleDto)
   }

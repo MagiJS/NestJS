@@ -39,7 +39,10 @@ export class Schedule extends S.Class<Schedule>("Schedule")({
 }) {}
 
 export class CreateScheduleDto extends S.Class<CreateScheduleDto>("CreateScheduleDto")({
-  Normals: S.Array(Schedule),
+  Normal: S.Array(Schedule),
   BigRun: S.Array(Schedule),
   TeamContest: S.Array(Schedule)
 }) {}
+
+const CreateScheduleDtoSchema = S.Struct(CreateScheduleDto.fields)
+type CreateScheduleDtoSchemaType = S.Schema.Type<typeof CreateScheduleDtoSchema>

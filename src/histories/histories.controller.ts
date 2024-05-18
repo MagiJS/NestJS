@@ -1,13 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/common"
-import { HistoriesService } from "./histories.service"
+import { ValidateInterceptor } from "@/utils/validate.interceptor"
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseInterceptors } from "@nestjs/common"
 import { CreateHistoryDto } from "./dto/create-history.dto"
 import { UpdateHistoryDto } from "./dto/update-history.dto"
+import { HistoriesService } from "./histories.service"
 
 @Controller("histories")
 export class HistoriesController {
   constructor(private readonly historiesService: HistoriesService) {}
 
   @Post()
+  @UseInterceptors(new ValidateInterceptor<CreateHistoryDto>(CreateHistoryDto))
   create(@Body() createHistoryDto: CreateHistoryDto) {
     return this.historiesService.create(createHistoryDto)
   }
