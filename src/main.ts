@@ -26,19 +26,19 @@ async function bootstrap() {
     origin: "*",
     preflightContinue: false
   })
-  app.useGlobalPipes(
-    new ValidationPipe({
-      disableErrorMessages: false,
-      transform: true,
-      transformOptions: {
-        excludeExtraneousValues: true,
-        exposeDefaultValues: false,
-        exposeUnsetFields: false,
-        ignoreDecorators: false
-      },
-      validateCustomDecorators: true
-    })
-  )
+  // app.useGlobalPipes(
+  //   new ValidationPipe({
+  //     disableErrorMessages: false,
+  //     transform: true,
+  //     transformOptions: {
+  //       excludeExtraneousValues: true,
+  //       exposeDefaultValues: false,
+  //       exposeUnsetFields: false,
+  //       ignoreDecorators: false
+  //     },
+  //     validateCustomDecorators: true
+  //   })
+  // )
   app.setViewEngine({
     engine: {
       handlebars: require("handlebars")
