@@ -12,12 +12,13 @@
   },
   "scripts": {
     "build": "nest build",
-    "format": "bunx @biomejs/biome format --write src",
+    "format": "bunx @biomejs/biome format src",
+    "format:fix": "bunx @biomejs/biome format --write src",
     "start": "nest start -b swc",
     "start:dev": "nest start --watch -b swc",
     "start:debug": "nest start --debug --watch -b swc",
     "start:prod": "node dist/main",
-    "lint": "bunx @biomejs/biome lint --apply src",
+    "lint": "bunx @biomejs/biome lint src",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -27,6 +28,9 @@
     "generate": "prisma generate"
   },
   "dependencies": {
+    "@effect/platform": "^0.53.8",
+    "@effect/platform-bun": "^0.34.14",
+    "@effect/schema": "^0.67.5",
     "@fastify/static": "^7.0.4",
     "@fastify/view": "^9.1.0",
     "@nestjs/axios": "^3.0.2",

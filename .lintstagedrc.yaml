@@ -1,4 +1,4 @@
 ---
 '**/*.ts':
-  - bunx @biomejs/biome lint --apply src
-  - bunx @biomejs/biome format --write src
+  - bunx @biomejs/biome lint src
+  - bunx @biomejs/biome format src

@@ -8,6 +8,10 @@ import { PrismaModule, PrismaService } from "nestjs-prisma"
 import { AppController } from "./app.controller"
 import { AppService } from "./app.service"
 import { LoggerMiddleware } from "./utils/logger.middleware"
+import { RecordsModule } from "./records/records.module"
+import { SchedulesModule } from "./schedules/schedules.module"
+import { HistoriesModule } from "./histories/histories.module"
+import { ResultsModule } from "./results/results.module"
 
 @Module({
   imports: [
@@ -36,7 +40,11 @@ import { LoggerMiddleware } from "./utils/logger.middleware"
         "accept-encoding": "gzip, deflate"
       }
     }),
-    PrismaModule.forRoot({ isGlobal: true })
+    PrismaModule.forRoot({ isGlobal: true }),
+    RecordsModule,
+    SchedulesModule,
+    HistoriesModule,
+    ResultsModule
   ],
   controllers: [AppController],
   providers: [AppService]
