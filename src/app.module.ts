@@ -18,36 +18,36 @@ import { LoggerMiddleware } from "./utils/logger.middleware"
     PrometheusModule.register({
       defaultMetrics: {
         config: {},
-        enabled: false
-      }
+        enabled: false,
+      },
     }),
     ThrottlerModule.forRoot([
       {
         limit: 100,
-        ttl: 60 * 5
-      }
+        ttl: 60 * 5,
+      },
     ]),
     ConfigModule.forRoot({
       envFilePath: ".env",
-      isGlobal: true
+      isGlobal: true,
     }),
     CacheModule.register({
       isGlobal: true,
-      ttl: 60 * 60 * 1000
+      ttl: 60 * 60 * 1000,
     }),
     HttpModule.register({
       headers: {
-        "accept-encoding": "gzip, deflate"
-      }
+        "accept-encoding": "gzip, deflate",
+      },
     }),
     PrismaModule.forRoot({ isGlobal: true }),
     RecordsModule,
     SchedulesModule,
     HistoriesModule,
-    ResultsModule
+    ResultsModule,
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

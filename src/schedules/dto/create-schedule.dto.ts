@@ -2,26 +2,26 @@ import * as S from "@effect/schema/Schema"
 
 export class Wave extends S.Class<Wave>("Wave")({
   tide: S.String,
-  event: S.String
+  event: S.String,
 }) {}
 
 export class Reward extends S.Class<Reward>("Reward")({
   reward: S.Number,
   topPercent: S.Number,
-  minimumScore: S.Number
+  minimumScore: S.Number,
 }) {}
 
 export class Rewards extends S.Class<Rewards>("Rewards")({
   normal: Reward,
   bronze: Reward,
   silver: Reward,
-  gold: Reward
+  gold: Reward,
 }) {}
 
 export class RewardGear extends S.Class<RewardGear>("RewardGear")({
   rewardId: S.String,
   kind: S.String,
-  id: S.Number
+  id: S.Number,
 }) {}
 
 export class Schedule extends S.Class<Schedule>("Schedule")({
@@ -35,14 +35,11 @@ export class Schedule extends S.Class<Schedule>("Schedule")({
   rareWeapons: S.Array(S.Number),
   rewardGear: S.optional(S.Union(RewardGear, S.Null)),
   specials: S.optional(S.Union(S.Array(S.Number), S.Null)),
-  waves: S.optional(S.Union(S.Array(Wave), S.Null))
+  waves: S.optional(S.Union(S.Array(Wave), S.Null)),
 }) {}
 
 export class CreateScheduleDto extends S.Class<CreateScheduleDto>("CreateScheduleDto")({
   Normal: S.Array(Schedule),
   BigRun: S.Array(Schedule),
-  TeamContest: S.Array(Schedule)
+  TeamContest: S.Array(Schedule),
 }) {}
-
-const CreateScheduleDtoSchema = S.Struct(CreateScheduleDto.fields)
-type CreateScheduleDtoSchemaType = S.Schema.Type<typeof CreateScheduleDtoSchema>

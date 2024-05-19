@@ -9,7 +9,7 @@ export class AppController {
   @Render("redoc.hbs")
   @Header(
     "Content-Security-Policy",
-    "default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; child-src * 'unsafe-inline' 'unsafe-eval' blob:; worker-src * 'unsafe-inline' 'unsafe-eval' blob:; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"
+    "default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; child-src * 'unsafe-inline' 'unsafe-eval' blob:; worker-src * 'unsafe-inline' 'unsafe-eval' blob:; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';",
   )
   @ApiExcludeEndpoint()
   @Version("3")
@@ -25,11 +25,11 @@ export class AppController {
           sortPropsAlphabetically: true,
           theme: {
             logo: {
-              gutter: "15px"
-            }
-          }
-        })
-      }
+              gutter: "15px",
+            },
+          },
+        }),
+      },
     }
   }
 }

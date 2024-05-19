@@ -1,4 +1,3 @@
-import { CreateScheduleDtoSchema } from "@/schedules/dto/create-schedule.dto"
 import * as Http from "@effect/platform/HttpServer"
 import { AST, Schema } from "@effect/schema"
 import { ParseError, decode, validateSync } from "@effect/schema/ParseResult"
@@ -10,7 +9,7 @@ import {
   Injectable,
   NestInterceptor,
   Response,
-  Type
+  Type,
 } from "@nestjs/common"
 import { ClassConstructor } from "class-transformer"
 import { Console, Effect, Either } from "effect"

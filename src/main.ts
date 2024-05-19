@@ -15,7 +15,7 @@ async function bootstrap() {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(server), {
-    logger: ["error", "warn", "log", "debug", "verbose"]
+    logger: ["error", "warn", "log", "debug", "verbose"],
   })
 
   app.enableVersioning({ defaultVersion: "1", type: VersioningType.URI })
@@ -24,7 +24,7 @@ async function bootstrap() {
     maxAge: 86400,
     optionsSuccessStatus: 200,
     origin: "*",
-    preflightContinue: false
+    preflightContinue: false,
   })
   // app.useGlobalPipes(
   //   new ValidationPipe({
@@ -41,9 +41,9 @@ async function bootstrap() {
   // )
   app.setViewEngine({
     engine: {
-      handlebars: require("handlebars")
+      handlebars: require("handlebars"),
     },
-    templates: join(__dirname, "./", "views")
+    templates: join(__dirname, "./", "views"),
   })
   const builder = new DocumentBuilder()
     .setTitle(content.name)
@@ -57,8 +57,8 @@ async function bootstrap() {
     SwaggerStats.getMiddleware({
       swaggerOnly: true,
       swaggerSpec: document,
-      version: content.version
-    })
+      version: content.version,
+    }),
   )
   SwaggerModule.setup("api", app, document, options)
   await app.listen(3030, "0.0.0.0")

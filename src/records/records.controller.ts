@@ -1,13 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/common"
-import { RecordsService } from "./records.service"
+import { ValidateInterceptor } from "@/utils/validate.interceptor"
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseInterceptors } from "@nestjs/common"
 import { CreateRecordDto } from "./dto/create-record.dto"
 import { UpdateRecordDto } from "./dto/update-record.dto"
+import { RecordsService } from "./records.service"
 
 @Controller("records")
 export class RecordsController {
   constructor(private readonly recordsService: RecordsService) {}
 
   @Post()
+  @UseInterceptors(new ValidateInterceptor<CreateRecordDto>(CreateRecordDto))
   create(@Body() createRecordDto: CreateRecordDto) {
     return this.recordsService.create(createRecordDto)
   }
